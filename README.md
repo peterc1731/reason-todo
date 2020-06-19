@@ -2,6 +2,8 @@
 
 A simple todo list app, built as an exercise to learn [Reason](https://reasonml.github.io/en/) and [ReasonReact](https://reasonml.github.io/reason-react/).
 
+[See it live here](https://reason-todo.now.sh/)
+
 ## Run
 
 ```sh
