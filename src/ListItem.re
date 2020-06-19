@@ -33,6 +33,7 @@ module Styles = {
       ~cursor="pointer",
       (),
     );
+  let check = ReactDOMRe.Style.make(~color="green", ());
   let deleteBtn =
     ReactDOMRe.Style.make(
       ~display="flex",
@@ -68,7 +69,7 @@ let make =
     ReactDOMRe.Style.combine(
       Styles.input,
       ReactDOMRe.Style.make(
-        ~textDecoration=completed ? "strikethrough" : "none",
+        ~textDecoration=completed ? "line-through" : "none",
         (),
       ),
     );
@@ -79,9 +80,12 @@ let make =
     onMouseLeave={_ => setHovered(_ => false)}>
     <div
       style=Styles.checkBox
-      onClick={_ => updateItem({...item, complete: !item.complete})}>
+      onClick={_ =>
+        filled ? updateItem({...item, complete: !item.complete}) : ()
+      }>
       {switch (completed, filled) {
-       | (true, true) => <div> {React.string({j|✓|j})} </div>
+       | (true, true) =>
+         <div style=Styles.check> {React.string({j|✓|j})} </div>
        | (_, false) => <div> {React.string({j|+|j})} </div>
        | _ => ReasonReact.null
        }}
