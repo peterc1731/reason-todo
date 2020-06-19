@@ -6,7 +6,8 @@ module Styles = {
       ~display="flex",
       ~flexDirection="column",
       ~alignItems="center",
-      ~width="400px",
+      ~maxWidth="400px",
+      ~width="100%",
       (),
     );
   let list =
